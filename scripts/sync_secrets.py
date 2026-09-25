@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 from dotenv import load_dotenv
 
-DEFAULT_REPO = "GWaman2007/daily-email-briefer"
+DEFAULT_REPO = "YashrajSwamy/daily-email-briefer-yash"
 ENV_PATH = Path(__file__).resolve().parent.parent / ".env"
 
 SECRETS_TO_SYNC = [

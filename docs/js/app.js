@@ -578,7 +578,7 @@ function switchBriefTab(tab) {
  * Trigger GitHub Actions workflow dispatch.
  */
 function triggerWorkflowDispatch() {
-    window.open('https://github.com/GWaman2007/daily-email-briefer/actions/workflows/daily-brief.yml', '_blank');
+    window.open('https://github.com/YashrajSwamy/daily-email-briefer-yash/actions/workflows/daily-brief.yml', '_blank');
     showToast('Opened GitHub Actions runner page. Click "Run workflow" to execute immediately.', 'info');
 }
 

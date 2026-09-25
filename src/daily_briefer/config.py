@@ -24,6 +24,9 @@ class Config:
     gemini_api_key: str
     tavily_api_key: str
 
+    # CI/CD
+    githubRepo: str
+
     # Outbound SMTP Mail Relay
     smtp_host: str = "smtp.gmail.com"
     smtp_port: int = 587
@@ -50,6 +53,7 @@ class Config:
         )
         gemini_api_key = os.getenv("GEMINI_API_KEY", "").strip()
         tavily_api_key = os.getenv("TAVILY_API_KEY", "").strip()
+        githubRepo = os.getenv("GITHUB_REPOSITORY", "").strip()
 
         # SMTP settings
         smtp_host = os.getenv("SMTP_HOST", "smtp.gmail.com").strip()
@@ -83,6 +87,8 @@ class Config:
             missing.append("SMTP_USER / GMAIL_USER")
         if not smtp_password:
             missing.append("SMTP_PASSWORD / GMAIL_APP_PASSWORD")
+        if not githubRepo:
+            missing.append("GITHUB_REPOSITORY")
 
         if missing:
             raise ValueError(f"Missing required environment variables: {', '.join(missing)}")
@@ -92,6 +98,7 @@ class Config:
             supabase_key=supabase_key,
             gemini_api_key=gemini_api_key,
             tavily_api_key=tavily_api_key,
+            githubRepo=githubRepo,
             smtp_host=smtp_host,
             smtp_port=smtp_port,
             smtp_user=smtp_user,
